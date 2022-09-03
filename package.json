@@ -1,0 +1,24 @@
+{
+  "name": "reddit-images-discord",
+  "version": "2.0.0",
+  "description": "random subreddit image in discord",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "/dist"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "reddit",
+    "discord",
+    "image",
+    "subreddit"
+  ],
+  "author": "Romoz",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^13.10.3"
+  }
+}
