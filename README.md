@@ -10,13 +10,11 @@
 $ npm install reddit-discord-image
 ```
 
-# Example
-
 ## MessageCreate
 
 ```js
 const { Client, Intents } = require('discord.js')
-const client = new Client({ [Intents.FLAGS.GUILDS] })
+const client = new Client({ intents: [Intents.FLAGS.GUILDS] })
 const { reddit } = require('reddit-discord-image')
 
 client.on('messageCreate', message => {
@@ -33,13 +31,13 @@ client.login(token)
 
 ```js
 const { Client, Intents } = require('discord.js')
-const client = new Client({ [Intents.FLAGS.GUILDS] })
+const client = new Client({ intents: [Intents.FLAGS.GUILDS] })
 const { reddit } = require('reddit-discord-image')
 
 client.on('interaction', interaction => {
     if(interaction.commandName == 'reddit'){
         const string = interaction.options.getString('input');
-        reddit(message, string)
+        reddit(interaction, string)
     }
 })
 
