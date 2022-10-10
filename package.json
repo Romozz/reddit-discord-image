@@ -1,6 +1,6 @@
 {
   "name": "reddit-discord-image",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "random subreddit image in discord",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

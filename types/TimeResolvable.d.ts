@@ -1,0 +1,1 @@
+export type TimeResolvable = "hour" | "day" | "week" | "month" | "year" | "all";

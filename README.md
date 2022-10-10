@@ -10,36 +10,38 @@
 $ npm install reddit-discord-image
 ```
 
-## MessageCreate
+## MessageCreate v13
 
 ```js
-const { Client, Intents } = require('discord.js')
-const client = new Client({ intents: [Intents.FLAGS.GUILDS] })
-const { reddit } = require('reddit-discord-image')
-
-client.on('messageCreate', message => {
-    const args = message.content.split(' ').splice(0)
-    if(message.content.startsWith('!reddit')){
-        reddit(message, args[0])
+client.on('messageCreate', async message => {
+    if (message.content.startsWith('!reddit')) {
+        const args = message.content.split(' ').splice(1)
+        await reddit.fetch({
+            reddit: args[0], // (required) subreddit name to find pictures
+            limit: 1000, // (optional) the number of pictures among which you will get 1 random one
+            sort: 'new', // (optional) a rather useless option, because the pictures are given out randomly
+            time: 'week' // (optional) how old are the pictures you want to get
+        })
+        message.channel.send({ embeds: [reddit] })
     }
 })
-
-client.login(token)
 ```
 
-# Interaction
+# Interaction v13
 
 ```js
-const { Client, Intents } = require('discord.js')
-const client = new Client({ intents: [Intents.FLAGS.GUILDS] })
-const { reddit } = require('reddit-discord-image')
-
-client.on('interaction', interaction => {
-    if(interaction.commandName == 'reddit'){
+client.on('interaction', async interaction => {
+    if (interaction.commandName == 'reddit') {
         const string = interaction.options.getString('input');
-        reddit(interaction, string)
+        await reddit.fetch({
+            reddit: string, // (required) subreddit name to find pictures
+            limit: 2000, // (optional) the number of pictures among which you will get 1 random one
+            sort: 'top', // (optional) a rather useless option, because the pictures are given out randomly
+            time: 'hour' // (optional) how old are the pictures you want to get
+        })
+        interaction.reply({ embeds: [reddit] })
     }
 })
-
-client.login(token)
 ```
+
+More examples in <a href="https://github.com/Romozz/reddit-discord-image/tree/main/examples">examples</a>
