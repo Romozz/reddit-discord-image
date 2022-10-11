@@ -13,6 +13,11 @@ $ npm install reddit-discord-image
 ## MessageCreate v13
 
 ```js
+const { RedditImage } = require('../dist') // write reddit-discord-image instead ../dist
+const { Client, Intents } = require('discord.js')
+const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] })
+const reddit = new RedditImage()
+
 client.on('messageCreate', async message => {
     if (message.content.startsWith('!reddit')) {
         const args = message.content.split(' ').splice(1)
@@ -25,23 +30,12 @@ client.on('messageCreate', async message => {
         message.channel.send({ embeds: [reddit] })
     }
 })
+
+client.login(token)
 ```
 
 # Interaction v13
 
-```js
-client.on('interaction', async interaction => {
-    if (interaction.commandName == 'reddit') {
-        const string = interaction.options.getString('input');
-        await reddit.fetch({
-            reddit: string, // (required) subreddit name to find pictures
-            limit: 2000, // (optional) the number of pictures among which you will get 1 random one
-            sort: 'top', // (optional) a rather useless option, because the pictures are given out randomly
-            time: 'hour' // (optional) how old are the pictures you want to get
-        })
-        interaction.reply({ embeds: [reddit] })
-    }
-})
-```
+You can view interaction example at this <a href="https://github.com/Romozz/reddit-discord-image/blob/main/examples/interaction.js">link</a>
 
-More examples in <a href="https://github.com/Romozz/reddit-discord-image/tree/main/examples">examples</a>
+### More examples in <a href="https://github.com/Romozz/reddit-discord-image/tree/main/examples">examples</a>

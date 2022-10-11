@@ -1,4 +1,4 @@
-const { RedditImage } = require('../dist')
+const { RedditImage } = require('../dist') // write reddit-discord-image instead ../dist
 const { Client, Intents } = require('discord.js')
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] })
 const reddit = new RedditImage()

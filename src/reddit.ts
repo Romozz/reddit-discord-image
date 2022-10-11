@@ -47,7 +47,7 @@ export class RedditImage {
           this.type = 'rich'
           this.title = `**${title}**`
           this.url = url
-          this.color = link_flair_background_color
+          this.color = link_flair_background_color || 0e0
           this.image = { url: url }
           this.author = {
             name: `${author}, ${ups}\👍`,

@@ -1,6 +1,6 @@
 {
   "name": "reddit-discord-image",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "random subreddit image in discord",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -24,8 +24,5 @@
     "subreddit"
   ],
   "author": "Romoz",
-  "license": "ISC",
-  "dependencies": {
-    "discord.js": "^13.10.3"
-  }
+  "license": "ISC"
 }
